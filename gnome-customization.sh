@@ -16,16 +16,16 @@ gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true
 echo " - Détacher les popups des fenêtres"
 gsettings set org.gnome.mutter attach-modal-dialogs false
 echo " - Affichage du calendrier dans le panneau supérieur"
-gsettings set org.gnome.desktop.calendar show-weekdate true
+gsettings set org.gnome.desktop.calendar show-weekdate false
 echo " - Modification du format de la date et heure"
 gsettings set org.gnome.desktop.interface clock-show-date true
-gsettings set org.gnome.desktop.interface clock-show-seconds true
+gsettings set org.gnome.desktop.interface clock-show-seconds false
 gsettings set org.gnome.desktop.interface clock-show-weekday true
-gsettings set org.gnome.desktop.interface clock-format 12h
-#echo " - Localisation du pointeur via CTRL"
-#gsettings set org.gnome.desktop.interface locate-pointer true #BUG de FOCUS avec GIMP
+gsettings set org.gnome.desktop.interface clock-format 24h
+echo " - Localisation du pointeur via CTRL"
+gsettings set org.gnome.desktop.interface locate-pointer true #BUG de FOCUS avec GIMP
 echo " - Paramétrage Touch Pad"
-gsettings set org.gnome.desktop.peripherals.touchpad disable-while-typing true
+gsettings set org.gnome.desktop.peripherals.touchpad disable-while-typing false
 gsettings set org.gnome.desktop.peripherals.touchpad click-method "areas"
 echo " - Désactivation des sons système"
 gsettings set org.gnome.desktop.wm.preferences audible-bell false
@@ -45,9 +45,9 @@ echo " - Désactivation des statistiques des logiciels"
 gsettings set org.gnome.desktop.privacy send-software-usage-stats false
 
 echo "Personnalisation de GNOME"
-echo " - Application du thème sombre"
-gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-dark'
+echo " - Application du thème clair"
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3-light'
 
 echo "Configuration Nautilus"
 echo " - Vue liste et activation du mode tree"
@@ -82,20 +82,20 @@ gsettings set org.gnome.Epiphany start-in-incognito-mode true
 echo "Configuration de Ptyxis"
 gsettings set org.gnome.Ptyxis use-system-font false
 gsettings set org.gnome.Ptyxis font-name 'Monospace 14'
-gsettings set org.gnome.Ptyxis restore-session false
+gsettings set org.gnome.Ptyxis restore-session true
 
-echo "Application des fonts Red Hat"
-if rpm -q redhat-mono-fonts &> /dev/null
-then
-	gsettings set org.gnome.Ptyxis font-name 'Red Hat Mono Regular 14' 
-fi
+#echo "Application des fonts Red Hat"
+#if rpm -q redhat-mono-fonts &> /dev/null
+#then
+#	gsettings set org.gnome.Ptyxis font-name 'Red Hat Mono Regular 14' 
+#fi
 
-if rpm -q redhat-text-fonts &> /dev/null
-then
-	gsettings set org.gnome.desktop.interface font-name 'Red Hat Text Regular 11'
-	gsettings set org.gnome.desktop.interface font-name 'Red Hat Text Regular 11'
-	gsettings set org.gnome.desktop.interface monospace-font-name 'Red Hat Mono Regular 10'
-fi
+#if rpm -q redhat-text-fonts &> /dev/null
+#then
+#	gsettings set org.gnome.desktop.interface font-name 'Red Hat Text Regular 11'
+#	gsettings set org.gnome.desktop.interface font-name 'Red Hat Text Regular 11'
+#	gsettings set org.gnome.desktop.interface monospace-font-name 'Red Hat Mono Regular 10'
+#fi
 
 echo "Personnalisation de Dash-to-dock"
 echo " - Activation de l'extension"
